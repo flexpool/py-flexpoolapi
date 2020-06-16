@@ -1,0 +1,424 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Pool Module &mdash; py-flexpoolapi  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="py-flexpoolapi" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> py-flexpoolapi
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Pool Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#general-statistics">General statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#top-statistics">Top Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#blocks">Blocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#other">Other</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">py-flexpoolapi</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Pool Module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/pool.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-flexpoolapi">
+<span id="pool-module"></span><h1>Pool Module<a class="headerlink" href="#module-flexpoolapi" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="flexpoolapi.pool">
+<em class="property">class </em><code class="sig-prename descclassname">flexpoolapi.</code><code class="sig-name descname">pool</code><a class="headerlink" href="#flexpoolapi.pool" title="Permalink to this definition">¶</a></dt>
+<dd><p>The API’s <code class="docutils literal notranslate"><span class="pre">Pool</span> <span class="pre">Module</span></code> bindings.</p>
+</dd></dl>
+
+<div class="section" id="general-statistics">
+<h2>General statistics<a class="headerlink" href="#general-statistics" title="Permalink to this headline">¶</a></h2>
+<dl class="py method">
+<dt id="flexpoolapi.pool.hashrate">
+<code class="sig-prename descclassname">pool.</code><code class="sig-name descname">hashrate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flexpoolapi.pool.hashrate" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><ul class="simple">
+<li><p>Delegates to <code class="docutils literal notranslate"><span class="pre">/pool/hashrate</span></code> API Method</p></li>
+</ul>
+</div></blockquote>
+<p>Returns pool’s current effective hashrate in H/s (hashes per second).
+All data is splitted into servers (e.g. EU1, US2)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">flexpoolapi</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">hashrate</span><span class="p">()</span>
+<span class="go">{&#39;EU1&#39;: 21818049812367, &#39;US1&#39;: 19274829582345, &#39;total&#39;: 41092879394712}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flexpoolapi.pool.miners_online">
+<code class="sig-prename descclassname">pool.</code><code class="sig-name descname">miners_online</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flexpoolapi.pool.miners_online" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>Delegates to <code class="docutils literal notranslate"><span class="pre">/pool/minersOnline</span></code> API Method</p></li>
+</ul>
+<p>Returns the amount of miners currently mining on our pool.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">flexpoolapi</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">miners_online</span><span class="p">()</span>
+<span class="go">47192</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flexpoolapi.pool.workers_online">
+<code class="sig-prename descclassname">pool.</code><code class="sig-name descname">workers_online</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flexpoolapi.pool.workers_online" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>Delegates to <code class="docutils literal notranslate"><span class="pre">/pool/workersOnline</span></code> API Method</p></li>
+</ul>
+<p>Returns the amount of workers currently mining on our pool.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">flexpoolapi</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">workers_online</span><span class="p">()</span>
+<span class="go">253194</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flexpoolapi.pool.block_count">
+<code class="sig-prename descclassname">pool.</code><code class="sig-name descname">block_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flexpoolapi.pool.block_count" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>Delegates to <code class="docutils literal notranslate"><span class="pre">/pool/blockCount</span></code> API Method</p></li>
+</ul>
+<p>Returns the amount of blocks that were mined by pool.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">flexpoolapi</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">block_count</span><span class="p">()</span>
+<span class="go">528191</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flexpoolapi.pool.avg_luck_roundtime">
+<code class="sig-prename descclassname">pool.</code><code class="sig-name descname">avg_luck_roundtime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flexpoolapi.pool.avg_luck_roundtime" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>Delegates to <code class="docutils literal notranslate"><span class="pre">/pool/avgLuckRoundtime</span></code> API Method</p></li>
+</ul>
+<p>Returns average luck and round time.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Round time is the time between pool’s blocks</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">luck</span><span class="p">,</span> <span class="n">round_time</span> <span class="o">=</span> <span class="n">flexpoolapi</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">avg_luck_roundtime</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">luck</span>
+<span class="go">1.297540974974846  # 129%</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">round_time</span>
+<span class="go">55.4  # 55.4 secs</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="top-statistics">
+<h2>Top Statistics<a class="headerlink" href="#top-statistics" title="Permalink to this headline">¶</a></h2>
+<dl class="py method">
+<dt id="flexpoolapi.pool.top_miners">
+<code class="sig-prename descclassname">pool.</code><code class="sig-name descname">top_miners</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flexpoolapi.pool.top_miners" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>Delegates to <code class="docutils literal notranslate"><span class="pre">/pool/topMiners</span></code> API method</p></li>
+</ul>
+<p>Returns top miners by hashrate.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">top_miners</span> <span class="o">=</span> <span class="n">flexpoolapi</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">top_miners</span><span class="p">()</span>
+<span class="go">[&lt;flexpoolapi.pool.TopMiner object 0xD7557BcC922E16D5248231Ee85919F5b01c97d12: 4.8 TH/s&gt;, &lt;flexpoolapi.pool.TopMiner object 0x31bfB275184Ce145B689ea79963c7b8ba5Fc5C99: 983.2 GH/s&gt;, ...]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">top_miners</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">&lt;flexpoolapi.pool.TopMiner object 0xD7557BcC922E16D5248231Ee85919F5b01c97d12: 4.8 TH/s&gt;</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">top_miners</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">address</span>
+<span class="go">0xD7557BcC922E16D5248231Ee85919F5b01c97d12</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">top_miners</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hashrate</span>
+<span class="go">4832143791236</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">top_miners</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pool_donation</span>
+<span class="go">0.05</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">top_miners</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">total_workers</span>
+<span class="go">24821</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">top_miners</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">first_joined</span>
+<span class="go">datetime.datetime(2020, 5, 13, 20, 8, 7)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flexpoolapi.pool.top_donators">
+<code class="sig-prename descclassname">pool.</code><code class="sig-name descname">top_donators</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flexpoolapi.pool.top_donators" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>Delegates to <code class="docutils literal notranslate"><span class="pre">/pool/topDonators</span></code> API method</p></li>
+</ul>
+<p>Returns top miners by hashrate.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">top_donators</span> <span class="o">=</span> <span class="n">flexpoolapi</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">top_donators</span><span class="p">()</span>
+<span class="go">[&lt;flexpoolapi.pool.TopMiner object 0xD7557BcC922E16D5248231Ee85919F5b01c97d12: 534.1283 ETH&gt;, &lt;flexpoolapi.pool.TopMiner object 0xD7557BcC922E16D5248231Ee85919F5b01c97d12: 277.7074 ETH&gt;, ...]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">top_donators</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">&lt;flexpoolapi.pool.TopMiner object 0xD7557BcC922E16D5248231Ee85919F5b01c97d12: 534.1283 ETH&gt;</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">top_miners</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">address</span>
+<span class="go">0xD7557BcC922E16D5248231Ee85919F5b01c97d12</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">top_miners</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hashrate</span>
+<span class="go">4832143791236</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">top_miners</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pool_donation</span>
+<span class="go">0.05</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">top_miners</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">total_donated</span>
+<span class="go">534.128394767847103826</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">top_miners</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">first_joined</span>
+<span class="go">datetime.datetime(2020, 5, 13, 20, 8, 7)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="blocks">
+<h2>Blocks<a class="headerlink" href="#blocks" title="Permalink to this headline">¶</a></h2>
+<dl class="py method">
+<dt id="flexpoolapi.pool.last_blocks">
+<code class="sig-prename descclassname">pool.</code><code class="sig-name descname">last_blocks</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">count</span><span class="o">=</span><span class="default_value">10</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpoolapi.pool.last_blocks" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><ul class="simple">
+<li><p>Wraps paged <code class="docutils literal notranslate"><span class="pre">/pool/blocks</span></code> API method</p></li>
+</ul>
+<p>Returns last N blocks mined by pool.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">last_blocks</span> <span class="o">=</span> <span class="n">flexpoolapi</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">last_blocks</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">[&lt;flexpoolapi.shared.Block object Block #10208094 (0x4a916…0be99)&gt;, &lt;flexpoolapi.shared.Block object Uncle #10156606 (0x262bb…1134d)&gt;, ...]</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Block class reference: &lt;TODO/TBD&gt;</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flexpoolapi.pool.blocks_paged">
+<code class="sig-prename descclassname">pool.</code><code class="sig-name descname">blocks_paged</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">page</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flexpoolapi.pool.blocks_paged" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>Delegates to <code class="docutils literal notranslate"><span class="pre">/pool/blocks</span></code> API method</p></li>
+</ul>
+<p>Returns paged response wrapped into <code class="docutils literal notranslate"><span class="pre">PagedResponse</span></code> class.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>There are 10 blocks per one page</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">blocks_page_0</span> <span class="o">=</span> <span class="n">flexpoolapi</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">blocks_paged</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># Get first 10 blocks</span>
+<span class="go">&lt;flexpoolapi.shared.PageResponse object [&lt;flexpoolapi.shared.Block object Block #10208094 (0x4a916…0be99)&gt;, &lt;flexpoolapi.shared.Block object Uncle #10156606 (0x262bb…1134d)&gt;, &lt;flexpoolapi.shared.Block object Block #9994360 (0x1251a…6dad9)&gt;, ...]&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">blocks_page_0</span><span class="o">.</span><span class="n">contents</span>
+<span class="go">[&lt;flexpoolapi.shared.Block object Block #10208094 (0x4a916…0be99)&gt;, &lt;flexpoolapi.shared.Block object Uncle #10156606 (0x262bb…1134d)&gt;, &lt;flexpoolapi.shared.Block object Block #9994360 (0x1251a…6dad9)&gt;, ...]</span>
+<span class="go">blocks_page_0.total_items</span>
+<span class="go">528191</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">blocks_page_0</span><span class="o">.</span><span class="n">total_pages</span>
+<span class="go">52820</span>
+<span class="go">&gt;&gt; blocks_page_0.items_per_page</span>
+<span class="go">10</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="other">
+<h2>Other<a class="headerlink" href="#other" title="Permalink to this headline">¶</a></h2>
+<dl class="py method">
+<dt id="flexpoolapi.pool.hashrate_chart">
+<code class="sig-prename descclassname">pool.</code><code class="sig-name descname">hashrate_chart</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flexpoolapi.pool.hashrate_chart" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>Delegates to <code class="docutils literal notranslate"><span class="pre">/pool/workersOnline</span></code> API Method</p></li>
+</ul>
+<p>Returns history of pool hashrate wrapped into <code class="docutils literal notranslate"><span class="pre">flexpoolapi.pool.HashrateChartItem</span></code> classes.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+   <span class="o">&lt;</span><span class="n">flexpoolapi</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">HashrateChartItem</span> <span class="p">(</span><span class="n">T</span> <span class="o">-</span> <span class="mi">10</span><span class="n">m</span><span class="p">)</span><span class="o">&gt;</span><span class="p">,</span>
+   <span class="o">&lt;</span><span class="n">flexpoolapi</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">HashrateChartItem</span> <span class="p">(</span><span class="n">T</span> <span class="o">-</span> <span class="mi">20</span><span class="n">m</span><span class="p">)</span><span class="o">&gt;</span><span class="p">,</span>
+   <span class="o">&lt;</span><span class="n">flexpoolapi</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">HashrateChartItem</span> <span class="p">(</span><span class="n">T</span> <span class="o">-</span> <span class="mi">30</span><span class="n">m</span><span class="p">)</span><span class="o">&gt;</span><span class="p">,</span>
+   <span class="o">...</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">hashrate_chart</span> <span class="o">=</span> <span class="n">flexpoolapi</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">hashrate_chart</span><span class="p">()</span>
+<span class="go">[&lt;flexpoolapi.pool.HashrateChartItem object EU1 (21.7 TH/s), US1 (19.1 TH/s)&gt;, &lt;flexpoolapi.pool.HashrateChartItem object EU1 (21 TH/s), US1 (19.8 TH/s)&gt;, ...]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hashrate_chart</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">&lt;flexpoolapi.pool.HashrateChartItem object EU1 (21.8 TH/s), US1 (19.1 TH/s)&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hashrate_chart</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">servers</span>
+<span class="go">{&#39;EU1&#39;: 21818049812367, &#39;US1&#39;: 19274829582345}  # Pool&#39;s hashrate splitted by servers</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hashrate_chart</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">total_hashrate</span>
+<span class="go">41092879394712  # Total pool&#39;s hashrate</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hashrate_chart</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">timestamp</span>
+<span class="go">1592321400  # Chart item&#39;s Unix timestamp</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="py-flexpoolapi" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Flexpool
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
