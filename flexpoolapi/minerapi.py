@@ -124,7 +124,8 @@ class MinerAPI:
         shared.check_response(api_request)
         classed_workers = []
         for worker_ in api_request.json()["result"]:
-            classed_workers.append(workerapi.Worker(self.address, worker_["name"], worker_["online"], worker_["last_seen"]))
+            classed_workers.append(
+                workerapi.Worker(self.address, worker_["name"], worker_["online"], worker_["last_seen"]))
 
         return classed_workers
 
