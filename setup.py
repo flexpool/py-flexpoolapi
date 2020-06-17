@@ -1,4 +1,5 @@
 import setuptools
+import subprocess
 
 with open("README.md", "r") as f:
     long_description = f.read()
@@ -6,9 +7,13 @@ with open("README.md", "r") as f:
 with open("requirements.txt", "r") as f:
     requirements = f.read()
 
+version = subprocess.check_output("git describe --abbrev=0 --tag", shell=True).decode()
+if version[-2:] == "\n":
+    version = version[:-2]
+
 setuptools.setup(
     name="flexpoolapi",
-    version="0.1.0",
+    version=version,
     author="Flexpool",
     author_email="office@flexpool.io",
     description="🐍 Pythonic wrapper for Flexpool Public API",
