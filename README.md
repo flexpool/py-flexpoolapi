@@ -1,4 +1,4 @@
-# py-flexpolapi
+# py-flexpoolapi
 
 ![Tests](https://github.com/flexpool/py-flexpoolapi/workflows/Tests/badge.svg)
 ![Upload Python Package](https://github.com/flexpool/py-flexpoolapi/workflows/Upload%20Python%20Package/badge.svg)
