@@ -16,3 +16,4 @@ docs/_build
 
 # Other
 .DS_Store
+.coverage

@@ -89,8 +89,7 @@ def api_pool_avg_luck_roundtime():
 
 
 def api_miner_exists(miner):
-    assert miner == simdata.MINER_ADDRESS
-    resp = make_response(simutils.wrap_response(True))
+    resp = make_response(simutils.wrap_response(miner == simdata.MINER_ADDRESS))
 
     resp.mimetype = "application/json"
     return resp
@@ -285,6 +284,12 @@ def api_worker_chart(miner, worker):
     return resp
 
 
+def test_400():
+    resp = make_response("400")
+    resp.status = 400
+    return resp
+
+
 def prepare_api_app():
     app = Flask("Flexpool API Simulation")
 
@@ -319,5 +324,8 @@ def prepare_api_app():
     app.route("/api/v1/worker/<miner>/<worker>/daily")(api_worker_daily)
     app.route("/api/v1/worker/<miner>/<worker>/stats")(api_worker_stats)
     app.route("/api/v1/worker/<miner>/<worker>/chart")(api_worker_chart)
+
+    # Misc
+    app.route("/400")(test_400)
 
     return app

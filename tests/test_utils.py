@@ -1,5 +1,5 @@
 #
-#   The MIT License (MIT)
+#   Software distrubuted under MIT License (MIT)
 #
 #   Copyright (c) 2020 Flexpool
 #
@@ -18,25 +18,34 @@
 #  SOFTWARE.
 #
 
-.PHONY: make upload install uninstall test clean
+import pytest
 
-make:
-	python3 setup.py sdist bdist_wheel
+import flexpoolapi.utils
 
-upload:
-	twine upload --skip-existing dist/*
 
-install:
-	python3 setup.py install
+@pytest.mark.parametrize(
+    "value, expected",
+    (
+            (554567074381, "554.6 GH/s"),
+            (736874205710, "736.9 GH/s"),
+            (947896881215, "947.9 GH/s"),
+            (48593396, "48.6 MH/s"),
+            (61210, "61.2 kH/s")
+    )
+)
+def test_format_hashrate(value, expected):
+    assert flexpoolapi.utils.format_hashrate(value) == expected
 
-uninstall:
-	pip3 uninstall flexpoolapi
 
-test:
-	python3 -m pytest --cov flexpoolapi
-
-lint:
-	flake8 flexpoolapi tests --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-
-clean:
-	rm -rf flexpoolapi.egg-info dist build docs/_build .pytest_cache
+@pytest.mark.parametrize(
+    "value, expected",
+    (
+            (3242668809488253150, "3.24267 ETH"),
+            (9477325763736408077, "9.47733 ETH"),
+            (3734333446367471820, "3.73433 ETH"),
+            (2298779027626753117, "2.29878 ETH"),
+            (521126336805019143,  "0.52113 ETH")
+    )
+)
+def test_format_hashrate(value, expected):
+    assert flexpoolapi.utils.format_weis(value, prec=5) == expected
