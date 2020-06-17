@@ -23,7 +23,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install flake8 pytest
+        pip install flake8 pytest pytest-cov
         pip install -r requirements.txt
         pip install -r tests/requirements.txt
     - name: Lint with flake8
@@ -35,3 +35,9 @@ jobs:
     - name: Test with pytest
       run: |
         make test
+    - name: Push coverage report
+      env:
+        COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+      run: |
+        coveralls
+      
