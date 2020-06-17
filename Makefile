@@ -18,7 +18,25 @@
 #  SOFTWARE.
 #
 
-.PHONY: test
+.PHONY: make upload install uninstall test clean
+
+make:
+	python3 setup.py sdist bdist_wheel
+
+upload:
+	twine upload --skip-existing dist/*
+
+install:
+	pip3 install -r requirements.txt
+	python3 setup.py install
+
+uninstall:
+	pip3 uninstall flexpoolapi
 
 test:
+	pip3 install -r requirements.txt
+	pip3 install flask pytest pysha3
 	python3 -m pytest
+
+clean:
+	rm -rf flexpoolapi.egg-info dist build docs/_build .pytest_cache
