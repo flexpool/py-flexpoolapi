@@ -21,7 +21,6 @@
 import flexpoolapi
 
 from . import simdata
-from . import utils
 
 
 class TestWorkerSimulated:
@@ -69,4 +68,3 @@ class TestWorkerSimulated:
                 assert got[j].stale_shares == expected["stale_shares"]
                 assert got[j].invalid_shares == expected["invalid_shares"]
                 assert got[j].timestamp == expected["timestamp"]
-

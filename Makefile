@@ -35,5 +35,8 @@ uninstall:
 test:
 	python3 -m pytest
 
+lint:
+	flake8 flexpoolapi tests --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+
 clean:
 	rm -rf flexpoolapi.egg-info dist build docs/_build .pytest_cache

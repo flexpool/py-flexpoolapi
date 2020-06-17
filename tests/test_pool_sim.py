@@ -29,7 +29,6 @@ from . import utils
 class TestPoolSimulated:
     def setup_class(self):
         flexpoolapi.set_base_endpoint("http://localhost:5000/api/v1")
-        import time
 
     def test_hashrate(self):
         got = flexpoolapi.pool.hashrate()

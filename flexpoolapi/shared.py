@@ -158,4 +158,3 @@ def check_response(request):
 
     if error:
         raise(exceptions.APIError(f"API Returned error: {error} (Request URL: {request.url})"))
-

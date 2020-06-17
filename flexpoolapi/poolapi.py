@@ -170,4 +170,3 @@ class PoolAPI:
         shared.check_response(api_request)
         api_request = api_request.json()["result"]
         return api_request["luck"], round(api_request["round_time"], 2)
-

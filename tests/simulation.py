@@ -321,5 +321,3 @@ def prepare_api_app():
     app.route("/api/v1/worker/<miner>/<worker>/chart")(api_worker_chart)
 
     return app
-
-
