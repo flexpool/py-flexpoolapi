@@ -153,15 +153,6 @@ class MinerAPI:
         return shared.PageResponse(
             classed_payments, api_request["total_items"], api_request["total_pages"], api_request["items_per_page"])
 
-    def last_payments(self, count):
-        payments = shared.get_last_items_from_paged_response(
-            self.endpoint + "/payments", items_count=count)
-        classed_payments = []
-        for raw_tx in payments:
-            classed_payments.append(Transaction(
-                raw_tx["amount"], raw_tx["timestamp"], raw_tx["duration"], raw_tx["txid"]))
-        return classed_payments
-
     def payment_count(self):
         api_request = requests.get(self.endpoint + "/paymentCount")
         shared.check_response(api_request)
@@ -181,17 +172,6 @@ class MinerAPI:
         return shared.PageResponse(
             classed_blocks, api_request["total_items"], api_request["total_pages"], api_request["items_per_page"])
 
-    def last_blocks(self, count):
-        blocks = shared.get_last_items_from_paged_response(self.endpoint + "/blocks", items_count=count)
-        classed_blocks = []
-        for raw_block in blocks:
-            classed_blocks.append(shared.Block(
-                raw_block["number"], raw_block["hash"], raw_block["type"], raw_block["miner"], raw_block["difficulty"],
-                raw_block["timestamp"], raw_block["confirmed"], raw_block["round_time"], raw_block["luck"],
-                raw_block["server_name"], raw_block["block_reward"], raw_block["block_fees"],
-                raw_block["uncle_inclusion_rewards"], raw_block["total_rewards"]))
-        return classed_blocks
-
     def block_count(self):
         api_request = requests.get(self.endpoint + "/blockCount")
         shared.check_response(api_request)
@@ -203,5 +183,3 @@ class MinerAPI:
         api_request = api_request.json()["result"]
         return MinerDetails(self.address, api_request["min_payout_threshold"], api_request["pool_donation"],
                             api_request["censored_email"], api_request["censored_ip"], api_request["first_joined"])
-
-
