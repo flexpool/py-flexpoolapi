@@ -37,7 +37,7 @@ class DailyAverageStats:
         return f"<flexpoolapi.shared.DailyAverageStats object {utils.format_hashrate(self.effective_hashrate)}>"
 
 
-class CurrentStats:
+class Stats:
     def __init__(self, effective: int, effective_day: int, reported: int, reported_day: int,
                  valid: int, stale: int, invalid: int):
         self.current_effective_hashrate = effective
@@ -51,7 +51,7 @@ class CurrentStats:
         self.invalid_shares = invalid
 
     def __repr__(self):
-        return f"<flexpoolapi.shared.CurrentStats object {utils.format_hashrate(self.current_effective_hashrate)}>"
+        return f"<flexpoolapi.shared.Stats object {utils.format_hashrate(self.current_effective_hashrate)}>"
 
 
 class StatChartItem:

@@ -97,7 +97,7 @@ class MinerAPI:
         api_request = requests.get(self.endpoint + "/stats")
         shared.check_response(api_request)
         api_request = api_request.json()["result"]
-        class_ = shared.CurrentStats(
+        class_ = shared.Stats(
             api_request["current"]["effective_hashrate"], api_request["daily"]["effective_hashrate"],
             api_request["current"]["reported_hashrate"], api_request["daily"]["reported_hashrate"],
             api_request["daily"]["valid_shares"], api_request["daily"]["stale_shares"],
