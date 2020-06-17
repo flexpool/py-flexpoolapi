@@ -20,7 +20,7 @@
 py-flexpoolapi
 ==========================================
 
-Pythonic wrapper library for easy interfacing with Flexpool Public API.
+Pythonic library for easy interfacing with Flexpool Public API.
 
 Contents
 ========
@@ -31,6 +31,7 @@ Contents
    pool
    miner
    worker
+   classes
 
 
 Indices and tables

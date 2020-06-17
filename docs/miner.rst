@@ -48,7 +48,7 @@ to access the API.
 Statistics
 ------------------------------------------
 
- .. py:method:: miner.balance()
+.. py:method:: miner.balance()
 
    - Delegates to ``/miner/<ADDRESS>/balance`` API Method
 
@@ -94,7 +94,9 @@ Statistics
          >> stats.invalid_shares
          0
 
-   ``flexpoolapi.shared.DailyAverageStats`` reference: <TODO/TBD>
+**References:**
+
+   :ref:`daily_average_stats`
 
 
 .. py:method:: miner.stats()
@@ -122,9 +124,11 @@ Statistics
          >> stats.invalid_shares
          0
 
-   ``flexpoolapi.shared.Stats`` reference: <TODO/TBD>
+**References:**
 
- .. py:method:: miner.block_count()
+   :ref:`stats`
+
+.. py:method:: miner.block_count()
 
    - Delegates to ``/miner/<ADDRESS>/blockCount`` API Method
 
@@ -136,7 +140,7 @@ Statistics
          2
 
 
- .. py:method:: miner.details()
+.. py:method:: miner.details()
 
    - Delegates to ``/miner/<ADDRESS>/details`` API Method
 
@@ -157,7 +161,9 @@ Statistics
          >>> details.censored_ip
          '*.*.*.1'
 
-   ``flexpoolapi.miner.MinerDetails`` reference: <TODO/TBD>
+**References:**
+
+   :ref:`miner_details`
 
 Payments
 ------------------------------------------
@@ -196,9 +202,11 @@ Payments
          10
 
 
-   ``flexpoolapi.shared.PageResponse`` reference: <TODO/TBD>
+**References:**
 
-   ``flexpoolapi.miner.Transaction`` reference: <TODO/TBD>
+   :ref:`page_response`
+
+   :ref:`transaction`
 
 
 Blocks
@@ -227,9 +235,11 @@ Blocks
          10
 
 
-   ``flexpoolapi.shared.PageResponse`` reference: <TODO/TBD>
+**References:**
 
-   ``flexpoolapi.shared.Block`` reference: <TODO/TBD>
+   :ref:`page_response`
+
+   :ref:`block`
 
 
 
@@ -276,7 +286,9 @@ Other
          0
 
 
-   ``flexpoolapi.shared.StatChartItem`` reference: <TODO/TBD>
+**References:**
+
+   :ref:`stat_chart_item`
 
 
 

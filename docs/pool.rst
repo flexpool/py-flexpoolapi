@@ -122,7 +122,9 @@ Top Statistics
          >>> top_miners[0].first_joined
          datetime.datetime(2020, 5, 13, 20, 8, 7)
 
-      ``flexpoolapi.pool.TopMiner`` reference: <TODO/TBD>
+      **References:**
+
+         :ref:`top_miner`
 
 
 .. py:method:: pool.top_donators()
@@ -150,7 +152,9 @@ Top Statistics
          >>> top_miners[0].first_joined
          datetime.datetime(2020, 5, 13, 20, 8, 7)
 
-      ``flexpoolapi.pool.TopDonator`` reference: <TODO/TBD>
+      **References:**
+
+         :ref:`top_donator`
 
 Blocks
 ------------------------------------------
@@ -168,7 +172,9 @@ Blocks
          [<flexpoolapi.shared.Block object Block #10208094 (0x4a916…0be99)>, <flexpoolapi.shared.Block object Uncle #10156606 (0x262bb…1134d)>, ...]
 
 
-   ``flexpoolapi.shared.Block`` reference: <TODO/TBD>
+   **References:**
+
+         :ref:`block`
 
 
 .. py:method:: pool.blocks_paged(page: int)
@@ -193,9 +199,11 @@ Blocks
          >> blocks_page_0.items_per_page
          10
 
-      ``flexpoolapi.shared.PageResponse`` reference: <TODO/TBD>
+      **References:**
 
-      ``flexpoolapi.shared.Block`` reference: <TODO/TBD>
+         :ref:`page_response`
+
+         :ref:`block`
 
 
 
@@ -239,4 +247,6 @@ Other
          1592321400  # Chart item's Unix timestamp
 
 
-   ``flexpoolapi.pool.HashrateChartItem`` reference: <TODO/TBD>
+   **References:**
+
+      :ref:`hashrate_chart_item`

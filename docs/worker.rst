@@ -28,8 +28,7 @@ Worker Module
 Introduction
 ------------------------------------------
 
-As py-flexpoolapi is coded in Pythonic Style, there's no such thing as Worker API by itself.
-Instead, the worker API is mounted into the Miner module.
+As py-flexpoolapi is coded in Pythonic Style, the worker API is mounted into the Miner module directly.
 
 .. code-block:: python
 
@@ -73,7 +72,7 @@ Statistics
 
    - Delegates to ``/woker/<MINER_ADDRESS>/<WORKER_NAME>/daily`` API Method
 
-   Returns workers's daily average hashrate and the amount of shares submitted during the day. Same as ``miner.daily_average_stats()``
+   Returns workers's daily average hashrate and the amount of shares submitted during the day. Same as ``miner.daily_average_stats()``.
 
    .. code-block:: python
 
@@ -97,7 +96,7 @@ Statistics
 
    - Delegates to ``/worker/<MINER_ADDRESS>/<WORKER_NAME>/stats`` API Method
 
-   Returns workers's current and daily average hashrate, and the amount of shares submitted during the day. Same as ``miner.stats()``
+   Returns workers's current and daily average hashrate, and the amount of shares submitted during the day. Same as ``miner.stats()``.
 
    .. code-block:: python
 
