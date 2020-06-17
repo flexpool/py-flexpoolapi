@@ -49,7 +49,7 @@ import flexpoolapi
 
 ```
 
-For better understanding, we recommend to read the [documentation](https://py-flexpoolapi.readthedocs.io). If don't like reading documentation, you can always refer to [examples directory](https://github.com/flexpool/py-flexpoolapi/tree/master/examples).
+For better understanding, we recommend to read the [documentation](https://py-flexpoolapi.readthedocs.io). If don't like reading documentation, you can always refer to the [examples directory](https://github.com/flexpool/py-flexpoolapi/tree/master/examples).
 
 # License
 MIT
