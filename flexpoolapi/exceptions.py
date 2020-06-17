@@ -27,7 +27,7 @@ class APIError(Exception):
     pass
 
 
-class MinerDoesNotExists(Exception):
+class MinerDoesNotExist(Exception):
     pass
 
 

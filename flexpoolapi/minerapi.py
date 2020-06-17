@@ -80,7 +80,7 @@ class MinerAPI:
         shared.check_response(api_request)
 
         if not api_request.json()["result"]:
-            raise(exceptions.MinerDoesNotExists(f"Miner {address} does not exist"))
+            raise(exceptions.MinerDoesNotExist(f"Miner {address} does not exist"))
 
     def balance(self):
         api_request = requests.get(self.endpoint + "/balance")
