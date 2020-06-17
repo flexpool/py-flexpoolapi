@@ -1,11 +1,53 @@
 # py-flexpolapi
 
 ![Tests](https://github.com/flexpool/py-flexpoolapi/workflows/Tests/badge.svg)
-![Upload Python Package](https://github.com/flexpool/py-flexpoolapi/workflows/Upload%20Python%20Package/badge.svg)
-
 [![Documentation Status](https://readthedocs.org/projects/py-flexpoolapi/badge/?version=latest)](https://py-flexpoolapi.readthedocs.io/en/latest/?badge=latest)
 [![Coverage Status](https://coveralls.io/repos/github/flexpool/py-flexpoolapi/badge.svg)](https://coveralls.io/github/flexpool/py-flexpoolapi)
 
 Structured Python wrapper for Flexpool API.
 
-[Read The Docs](https://py-flexpoolapi.readthedocs.io)
+[Documentation](https://py-flexpoolapi.readthedocs.io)
+
+# Installation
+![Upload Python Package](https://github.com/flexpool/py-flexpoolapi/workflows/Upload%20Python%20Package/badge.svg)
+
+## Using pip
+```sh
+pip3 install flexpoolapi
+```
+
+## Build from source
+```sh
+git clone https://github.com/flexpool/py-flexpoolapi.git
+cd py-flexpoolapi
+pip3 install -r requirements.txt
+make install  # or `python3 setup.py install`
+```
+
+# Usage
+
+Quick example:
+```python
+import flexpoolapi
+
+# Pool
+>>> flexpoolapi.pool.hashrate()
+{'EU1': 21818049812367, 'US1': 19274829582345, 'total': 41092879394712}
+>>> flexpoolapi.pool.miners_online()
+47192
+>>> flexpoolapi.pool.workers_online()
+253194
+
+# Miner
+>>> miner = flexpoolapi.miner("0x8B82eE62Ae306BF1bE085458a08241759d1d7E20")
+>>> miner.balance()
+575311819007598793
+>>> effective_hashrate, reported_hashrate = miner.current_hashrate()
+(532256937, 497730709)
+
+```
+
+For better understanding, we recommend to read the [documentation](https://py-flexpoolapi.readthedocs.io). If don't like reading documentation, you can always refer to [examples directory](https://github.com/flexpool/py-flexpoolapi/tree/master/examples).
+
+# License
+MIT
