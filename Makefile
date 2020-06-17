@@ -27,15 +27,12 @@ upload:
 	twine upload --skip-existing dist/*
 
 install:
-	pip3 install -r requirements.txt
 	python3 setup.py install
 
 uninstall:
 	pip3 uninstall flexpoolapi
 
 test:
-	pip3 install -r requirements.txt
-	pip3 install flask pytest pysha3
 	python3 -m pytest
 
 clean:
