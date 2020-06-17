@@ -20,15 +20,14 @@
 Pool Module
 ==========================================
 
-.. py:module:: flexpoolapi
-.. py:class:: pool
+.. py:class:: flexpoolapi.pool
 
     The API's ``Pool Module`` bindings.
 
 General statistics
 ------------------------------------------
 
-.. py:method:: pool.hashrate
+.. py:method:: pool.hashrate()
 
       - Delegates to ``/pool/hashrate`` API Method
 
@@ -41,7 +40,7 @@ General statistics
         {'EU1': 21818049812367, 'US1': 19274829582345, 'total': 41092879394712}
 
 
-.. py:method:: pool.miners_online
+.. py:method:: pool.miners_online()
 
       - Delegates to ``/pool/minersOnline`` API Method
 
@@ -53,7 +52,7 @@ General statistics
          47192
 
 
-.. py:method:: pool.workers_online
+.. py:method:: pool.workers_online()
 
       - Delegates to ``/pool/workersOnline`` API Method
 
@@ -64,7 +63,7 @@ General statistics
          >>> flexpoolapi.pool.workers_online()
          253194
 
-.. py:method:: pool.block_count
+.. py:method:: pool.block_count()
 
       - Delegates to ``/pool/blockCount`` API Method
 
@@ -76,7 +75,7 @@ General statistics
          528191
 
 
-.. py:method:: pool.avg_luck_roundtime
+.. py:method:: pool.avg_luck_roundtime()
 
       - Delegates to ``/pool/avgLuckRoundtime`` API Method
 
@@ -98,11 +97,11 @@ General statistics
 Top Statistics
 ------------------------------------------
 
-.. py:method:: pool.top_miners
+.. py:method:: pool.top_miners()
 
       - Delegates to ``/pool/topMiners`` API method
 
-      Returns top miners by hashrate.
+      Returns top miners by hashrate (descending order).
 
       .. code-block:: python
 
@@ -123,20 +122,22 @@ Top Statistics
          >>> top_miners[0].first_joined
          datetime.datetime(2020, 5, 13, 20, 8, 7)
 
+      ``flexpoolapi.pool.TopMiner`` reference: <TODO/TBD>
 
-.. py:method:: pool.top_donators
+
+.. py:method:: pool.top_donators()
 
       - Delegates to ``/pool/topDonators`` API method
 
-      Returns top miners by hashrate.
+      Returns top miners by total donated amount (descending order).
 
       .. code-block:: python
 
          >>> top_donators = flexpoolapi.pool.top_donators()
-         [<flexpoolapi.pool.TopMiner object 0xD7557BcC922E16D5248231Ee85919F5b01c97d12: 534.1283 ETH>, <flexpoolapi.pool.TopMiner object 0xD7557BcC922E16D5248231Ee85919F5b01c97d12: 277.7074 ETH>, ...]
+         [<flexpoolapi.pool.TopDonator object 0xD7557BcC922E16D5248231Ee85919F5b01c97d12: 534.1283 ETH>, <flexpoolapi.pool.TopDonator object 0xD7557BcC922E16D5248231Ee85919F5b01c97d12: 277.7074 ETH>, ...]
 
          >>> top_donators[0]
-         <flexpoolapi.pool.TopMiner object 0xD7557BcC922E16D5248231Ee85919F5b01c97d12: 534.1283 ETH>
+         <flexpoolapi.pool.TopDonator object 0xD7557BcC922E16D5248231Ee85919F5b01c97d12: 534.1283 ETH>
 
          >>> top_miners[0].address
          0xD7557BcC922E16D5248231Ee85919F5b01c97d12
@@ -149,9 +150,7 @@ Top Statistics
          >>> top_miners[0].first_joined
          datetime.datetime(2020, 5, 13, 20, 8, 7)
 
-
-
-
+      ``flexpoolapi.pool.TopDonator`` reference: <TODO/TBD>
 
 Blocks
 ------------------------------------------
@@ -161,7 +160,7 @@ Blocks
 
       - Wraps paged ``/pool/blocks`` API method
 
-      Returns last N blocks mined by pool.
+      Returns last N blocks mined by pool (descending order).
 
       .. code-block:: python
 
@@ -169,21 +168,21 @@ Blocks
          [<flexpoolapi.shared.Block object Block #10208094 (0x4a916…0be99)>, <flexpoolapi.shared.Block object Uncle #10156606 (0x262bb…1134d)>, ...]
 
 
-   Block class reference: <TODO/TBD>
+   ``flexpoolapi.shared.Block`` reference: <TODO/TBD>
 
 
 .. py:method:: pool.blocks_paged(page: int)
 
       - Delegates to ``/pool/blocks`` API method
 
-      Returns paged response wrapped into ``PagedResponse`` class.
+      Returns paged response wrapped into ``PageResponse`` class (descending order).
 
       .. hint::
             There are 10 blocks per one page
 
       .. code-block:: python
 
-         >>> blocks_page_0 = flexpoolapi.pool.blocks_paged(0)  # Get first 10 blocks
+         >>> blocks_page_0 = flexpoolapi.pool.blocks_paged(page=0)  # Get first 10 blocks
          <flexpoolapi.shared.PageResponse object [<flexpoolapi.shared.Block object Block #10208094 (0x4a916…0be99)>, <flexpoolapi.shared.Block object Uncle #10156606 (0x262bb…1134d)>, <flexpoolapi.shared.Block object Block #9994360 (0x1251a…6dad9)>, ...]>
          >>> blocks_page_0.contents
          [<flexpoolapi.shared.Block object Block #10208094 (0x4a916…0be99)>, <flexpoolapi.shared.Block object Uncle #10156606 (0x262bb…1134d)>, <flexpoolapi.shared.Block object Block #9994360 (0x1251a…6dad9)>, ...]
@@ -194,16 +193,20 @@ Blocks
          >> blocks_page_0.items_per_page
          10
 
+      ``flexpoolapi.shared.PageResponse`` reference: <TODO/TBD>
+
+      ``flexpoolapi.shared.Block`` reference: <TODO/TBD>
+
 
 
 
 Other
 ------------------------------------------
 
-.. py:method:: pool.hashrate_chart
+.. py:method:: pool.hashrate_chart()
 
 
-   - Delegates to ``/pool/workersOnline`` API Method
+   - Delegates to ``/pool/hashrateChart`` API Method
 
    Returns history of pool hashrate wrapped into ``flexpoolapi.pool.HashrateChartItem`` classes.
 
@@ -212,6 +215,7 @@ Other
    .. code-block:: python
 
       [
+         <flexpoolapi.pool.HashrateChartItem (T)>,
          <flexpoolapi.pool.HashrateChartItem (T - 10m)>,
          <flexpoolapi.pool.HashrateChartItem (T - 20m)>,
          <flexpoolapi.pool.HashrateChartItem (T - 30m)>,
@@ -234,3 +238,5 @@ Other
          >>> hashrate_chart[0].timestamp
          1592321400  # Chart item's Unix timestamp
 
+
+   ``flexpoolapi.pool.HashrateChartItem`` reference: <TODO/TBD>
