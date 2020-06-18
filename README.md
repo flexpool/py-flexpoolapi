@@ -1,5 +1,6 @@
 # py-flexpoolapi
 
+[![PyPI Latest Release](https://img.shields.io/pypi/v/flexpoolapi.svg)](https://pypi.org/project/flexpoolapi)
 ![Tests](https://github.com/flexpool/py-flexpoolapi/workflows/Tests/badge.svg)
 ![Upload Python Package](https://github.com/flexpool/py-flexpoolapi/workflows/Upload%20Python%20Package/badge.svg)
 [![Documentation Status](https://readthedocs.org/projects/py-flexpoolapi/badge/?version=latest)](https://py-flexpoolapi.readthedocs.io/en/latest/?badge=latest)
