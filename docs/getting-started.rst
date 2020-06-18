@@ -81,5 +81,5 @@ Quick example
       >>> effective_hashrate, reported_hashrate = miner.current_hashrate()
       (532256937, 497730709)
 
-For futher better understanding, we recommend to read the documentation fully.
-If don't like reading documentation, you can always refer to the `Examples Directory on GitHub <https://github.com/flexpool/py-flexpoolapi/tree/master/examples>`_.
+For better understanding, we recommend reading the documentation fully.
+If you don't like reading documentation, you can always refer to the `Examples Directory on GitHub <https://github.com/flexpool/py-flexpoolapi/tree/master/examples>`_.
