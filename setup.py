@@ -21,7 +21,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/flexpool/py-flexpoolapi",
     packages=["flexpoolapi"],
-    requirements=requirements,
+    install_requires=requirements,
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
