@@ -30,7 +30,7 @@ make install  # or `python3 setup.py install`
 
 Quick example:
 ```python
-import flexpoolapi
+>>> import flexpoolapi
 
 # Pool
 >>> flexpoolapi.pool.hashrate()
