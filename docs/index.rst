@@ -28,6 +28,8 @@ Contents
 .. toctree::
    :maxdepth: 1
 
+   getting-started
+
    pool
    miner
    worker
