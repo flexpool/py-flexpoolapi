@@ -170,3 +170,8 @@ class PoolAPI:
         shared.check_response(api_request)
         api_request = api_request.json()["result"]
         return api_request["luck"], round(api_request["round_time"], 2)
+
+    def current_luck(self) -> (float):
+        api_request = requests.get(self.endpoint + "/currentLuck")
+        shared.check_response(api_request)
+        return api_request.json()["result"]
