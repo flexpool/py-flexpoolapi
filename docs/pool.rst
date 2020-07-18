@@ -75,6 +75,18 @@ General statistics
          528191
 
 
+.. py:method:: pool.current_luck()
+
+      - Delegates to ``/pool/currentLuck`` API Method
+
+      Returns current luck.
+
+      .. code-block:: python
+
+         >>> flexpoolapi.pool.current_luck()
+         2.911822938883974 # 291%
+
+
 .. py:method:: pool.avg_luck_roundtime()
 
       - Delegates to ``/pool/avgLuckRoundtime`` API Method
