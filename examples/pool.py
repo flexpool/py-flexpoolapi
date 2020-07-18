@@ -42,3 +42,6 @@ print("Top donators:", top_donators)
 avg_luck, avg_roundtime = flexpoolapi.pool.avg_luck_roundtime()
 print("AVG Luck:", avg_luck)
 print("AVF Round Time:", avg_roundtime)
+
+current_luck = flexpoolapi.pool.current_luck()
+print("Current Luck:", current_luck)
