@@ -28,7 +28,8 @@ print("\nWorker Count:", miner.worker_count())
 
 print("\n---WORKERS---\n")
 for worker in miner.workers():
-    print("Worker Name:", worker.worker_name + ",", "is online:", worker.is_online)
+    print("Worker Name:", worker.worker_name +
+          ",", "is online:", worker.is_online)
     print("Last seen:", worker.last_seen_date)
     current_effective, current_reported = worker.current_hashrate()
     print("Worker Effective hashrate", current_effective)

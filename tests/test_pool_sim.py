@@ -34,7 +34,8 @@ class TestPoolSimulated:
         got = flexpoolapi.pool.hashrate()
         assert got["EU1"] == simdata.POOL_HASHRATE_EU1
         assert got["US1"] == simdata.POOL_HASHRATE_US1
-        assert got["EU1"] + got["US1"] == simdata.POOL_HASHRATE_EU1 + simdata.POOL_HASHRATE_US1
+        assert got["EU1"] + got["US1"] == simdata.POOL_HASHRATE_EU1 + \
+            simdata.POOL_HASHRATE_US1
 
     def test_hashrate_chart(self):
         got = flexpoolapi.pool.hashrate_chart()
@@ -78,7 +79,8 @@ class TestPoolSimulated:
             assert expected_miner["hashrate"] == got[i].hashrate
             assert expected_miner["pool_donation"] == got[i].pool_donation
             assert expected_miner["total_workers"] == got[i].total_workers
-            assert expected_miner["first_joined"] == got[i].first_joined.timestamp()
+            assert expected_miner["first_joined"] == got[i].first_joined.timestamp(
+            )
 
     def test_top_donators(self):
         got = flexpoolapi.pool.top_donators()
@@ -87,7 +89,8 @@ class TestPoolSimulated:
             assert expected_miner["total_donated"] == got[i].total_donated
             assert expected_miner["pool_donation"] == got[i].pool_donation
             assert expected_miner["hashrate"] == got[i].hashrate
-            assert expected_miner["first_joined"] == got[i].first_joined.timestamp()
+            assert expected_miner["first_joined"] == got[i].first_joined.timestamp(
+            )
 
     def test_avg_luck_roundtime(self):
         avg_luck_got, avg_roundtime_got = flexpoolapi.pool.avg_luck_roundtime()

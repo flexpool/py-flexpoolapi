@@ -38,9 +38,11 @@ class Worker:
         self.address = address
         self.worker_name = worker_name
         self.is_online = online
-        self.last_seen_date = datetime.datetime.fromtimestamp(last_seen_timestamp)
+        self.last_seen_date = datetime.datetime.fromtimestamp(
+            last_seen_timestamp)
 
-        self.endpoint = __WORKER_API_ENDPOINT__ + f"/{self.address}/{self.worker_name}"
+        self.endpoint = __WORKER_API_ENDPOINT__ + \
+            f"/{self.address}/{self.worker_name}"
 
     def current_hashrate(self):
         api_request = requests.get(self.endpoint + "/current")
@@ -83,4 +85,4 @@ class Worker:
 
     def __repr__(self):
         return "<flexpoolapi.worker.Worker object "\
-                f"{self.worker_name} ({self.address})>"
+            f"{self.worker_name} ({self.address})>"

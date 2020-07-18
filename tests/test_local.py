@@ -26,11 +26,16 @@ from . import utils
 @pytest.mark.parametrize(
     "addr, expected",
     (
-            ("0xfd7af55540c2383adb69b5de147886d40b259528", "0xfd7AF55540C2383adB69b5De147886D40b259528"),
-            ("0x2be3dd6c2a720c038b598b9951d300286b9ebb7a", "0x2BE3DD6c2a720c038B598B9951D300286B9EbB7A"),
-            ("0x254471ce054b4e3b2f24c34d0b95defca218dfc1", "0x254471cE054B4e3B2F24c34d0B95defcA218DFC1"),
-            ("0xba553e99a6e6ebbd228b2ae9cd317e62bdfb1175", "0xba553E99A6E6EbBd228b2aE9Cd317E62BDFB1175"),
-            ("0x69cb74e05bd8d769f17582ec4d26ec3b65dd0f03", "0x69Cb74e05BD8d769f17582EC4D26eC3B65Dd0f03")
+        ("0xfd7af55540c2383adb69b5de147886d40b259528",
+         "0xfd7AF55540C2383adB69b5De147886D40b259528"),
+        ("0x2be3dd6c2a720c038b598b9951d300286b9ebb7a",
+         "0x2BE3DD6c2a720c038B598B9951D300286B9EbB7A"),
+        ("0x254471ce054b4e3b2f24c34d0b95defca218dfc1",
+         "0x254471cE054B4e3B2F24c34d0B95defcA218DFC1"),
+        ("0xba553e99a6e6ebbd228b2ae9cd317e62bdfb1175",
+         "0xba553E99A6E6EbBd228b2aE9Cd317E62BDFB1175"),
+        ("0x69cb74e05bd8d769f17582ec4d26ec3b65dd0f03",
+         "0x69Cb74e05BD8d769f17582EC4D26eC3B65Dd0f03")
     )
 )
 def test_utils_to_checksum_address(addr, expected):

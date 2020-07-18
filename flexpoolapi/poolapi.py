@@ -41,7 +41,8 @@ class HashrateChartItem:
     def __repr__(self):
         servers = []
         for server_name, server_hashrate in self.servers.items():
-            servers.append(f"{server_name} ({utils.format_hashrate(server_hashrate)})")
+            servers.append(
+                f"{server_name} ({utils.format_hashrate(server_hashrate)})")
 
         return "<flexpoolapi.pool.HashrateChartItem object " + ", ".join(servers) + ">"
 
@@ -53,7 +54,8 @@ class TopMiner:
         self.hashrate = hashrate
         self.pool_donation = pool_donation
         self.total_workers = total_workers
-        self.first_joined = datetime.datetime.fromtimestamp(first_joined_timestamp)
+        self.first_joined = datetime.datetime.fromtimestamp(
+            first_joined_timestamp)
 
     def __repr__(self):
         return f"<flexpoolapi.pool.TopMiner object {self.address}: {utils.format_hashrate(self.hashrate)}>"
@@ -66,7 +68,8 @@ class TopDonator:
         self.total_donated = total_donated
         self.pool_donation = pool_donation
         self.hashrate = hashrate
-        self.first_joined = datetime.datetime.fromtimestamp(first_joined_timestamp)
+        self.first_joined = datetime.datetime.fromtimestamp(
+            first_joined_timestamp)
 
     def __repr__(self):
         return f"<flexpoolapi.pool.TopDonator object {self.address}: {utils.format_weis(self.total_donated)}>"
@@ -89,7 +92,8 @@ class PoolAPI:
             total_hashrate = item["total"]
             timestamp = item["timestamp"]
             del item["total"], item["timestamp"]
-            hashrate_chart_classed.append(HashrateChartItem(item, total_hashrate, timestamp))
+            hashrate_chart_classed.append(
+                HashrateChartItem(item, total_hashrate, timestamp))
         return hashrate_chart_classed
 
     def miners_online(self):
@@ -103,7 +107,8 @@ class PoolAPI:
         return api_request.json()["result"]
 
     def blocks_paged(self, page):
-        api_request = requests.get(self.endpoint + "/blocks", params=[("page", page)])
+        api_request = requests.get(
+            self.endpoint + "/blocks", params=[("page", page)])
         shared.check_response(api_request)
         api_request = api_request.json()["result"]
         classed_blocks = []
@@ -117,7 +122,8 @@ class PoolAPI:
             classed_blocks, api_request["total_items"], api_request["total_pages"], api_request["items_per_page"])
 
     def last_blocks(self, count=10):
-        blocks = shared.get_last_items_from_paged_response(self.endpoint + "/blocks", items_count=count)
+        blocks = shared.get_last_items_from_paged_response(
+            self.endpoint + "/blocks", items_count=count)
         classed_blocks = []
         for raw_block in blocks:
             classed_blocks.append(shared.Block(

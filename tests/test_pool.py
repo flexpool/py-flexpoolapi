@@ -31,12 +31,14 @@ class TestPool:
         flexpoolapi.set_base_endpoint(flexpoolapi.DEFAULT_ENDPOINT)
 
     def test_pool_hashrate(self):
-        expected = requests.get("https://flexpool.io/api/v1/pool/hashrate").json()["result"]
+        expected = requests.get(
+            "https://flexpool.io/api/v1/pool/hashrate").json()["result"]
         got = flexpoolapi.pool.hashrate()
         assert expected == got
 
     def test_pool_hashrate_chart(self):
-        expected = requests.get("https://flexpool.io/api/v1/pool/hashrateChart").json()["result"]
+        expected = requests.get(
+            "https://flexpool.io/api/v1/pool/hashrateChart").json()["result"]
         got = flexpoolapi.pool.hashrate_chart()
         for i, item in enumerate(got):
             assert item.timestamp == expected[i]["timestamp"]
@@ -45,17 +47,20 @@ class TestPool:
                 assert expected[i][server_name] == hashrate
 
     def test_online_miners(self):
-        expected = requests.get("https://flexpool.io/api/v1/pool/minersOnline").json()["result"]
+        expected = requests.get(
+            "https://flexpool.io/api/v1/pool/minersOnline").json()["result"]
         got = flexpoolapi.pool.miners_online()
         assert expected == got
 
     def test_online_workers(self):
-        expected = requests.get("https://flexpool.io/api/v1/pool/workersOnline").json()["result"]
+        expected = requests.get(
+            "https://flexpool.io/api/v1/pool/workersOnline").json()["result"]
         got = flexpoolapi.pool.workers_online()
         assert expected == got
 
     def test_block_pages(self):
-        meta = requests.get("https://flexpool.io/api/v1/pool/blocks", params=[("page", 0)]).json()["result"]
+        meta = requests.get("https://flexpool.io/api/v1/pool/blocks",
+                            params=[("page", 0)]).json()["result"]
         total_items = meta["total_items"]
         items_per_page = meta["items_per_page"]
 
@@ -72,20 +77,23 @@ class TestPool:
     def test_last_blocks(self):
         # TESTING_AMOUNTS = [3, 1, 6, 8, 0, 5, 10, 2, 9, 4]
         TESTING_AMOUNTS = [2, 3, 1]
-        expected = requests.get("https://flexpool.io/api/v1/pool/blocks", params=[("page", 0)]).json()["result"]["data"]
+        expected = requests.get("https://flexpool.io/api/v1/pool/blocks",
+                                params=[("page", 0)]).json()["result"]["data"]
         for testing_amount in TESTING_AMOUNTS:
             got = flexpoolapi.pool.last_blocks(count=testing_amount)
             for i, block_expected in enumerate(expected[0:testing_amount]):
                 utils.compare_blocks(block_expected, got[i])
 
     def test_block_count(self):
-        expected = requests.get("https://flexpool.io/api/v1/pool/blockCount").json()["result"]
+        expected = requests.get(
+            "https://flexpool.io/api/v1/pool/blockCount").json()["result"]
         got = flexpoolapi.pool.block_count()
         assert expected["confirmed"] == got["confirmed"]
         assert expected["unconfirmed"] == got["unconfirmed"]
 
     def test_top_miners(self):
-        expected = requests.get("https://flexpool.io/api/v1/pool/topMiners").json()["result"]
+        expected = requests.get(
+            "https://flexpool.io/api/v1/pool/topMiners").json()["result"]
         got = flexpoolapi.pool.top_miners()
         for i, top_miner in enumerate(expected):
             assert top_miner["address"] == got[i].address
@@ -95,7 +103,8 @@ class TestPool:
             assert top_miner["first_joined"] == got[i].first_joined.timestamp()
 
     def test_top_donators(self):
-        expected = requests.get("https://flexpool.io/api/v1/pool/topDonators").json()["result"]
+        expected = requests.get(
+            "https://flexpool.io/api/v1/pool/topDonators").json()["result"]
         got = flexpoolapi.pool.top_donators()
         for i, top_miner in enumerate(expected):
             assert top_miner["address"] == got[i].address

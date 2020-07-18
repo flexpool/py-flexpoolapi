@@ -37,14 +37,16 @@ def test_dailyaveragestats_class_misc():
     for _ in range(0, 100):
         effective = random.randint(20000000, 5000000000)
         expected = f"<flexpoolapi.shared.DailyAverageStats object {format_hashrate(effective)}>"
-        assert flexpoolapi.shared.DailyAverageStats(effective, 0, 0, 0, 0).__repr__() == expected
+        assert flexpoolapi.shared.DailyAverageStats(
+            effective, 0, 0, 0, 0).__repr__() == expected
 
 
 def test_stats_class_misc():
     for _ in range(0, 100):
         effective = random.randint(20000000, 5000000000)
         expected = f"<flexpoolapi.shared.Stats object {format_hashrate(effective)}>"
-        assert flexpoolapi.shared.Stats(effective, 0, 0, 0, 0, 0, 0).__repr__() == expected
+        assert flexpoolapi.shared.Stats(
+            effective, 0, 0, 0, 0, 0, 0).__repr__() == expected
 
 
 def test_startchartitem_misc():
@@ -52,7 +54,8 @@ def test_startchartitem_misc():
         timestamp = random.randint(int(time.time()) - 86400, int(time.time()))
         expected = f"<flexpoolapi.shared.StatChartItem object " \
                    f"({datetime.datetime.fromtimestamp(timestamp).strftime('%Y %b %d %H:%M')})>"
-        assert flexpoolapi.shared.StatChartItem(0, 0, 0, 0, 0, timestamp).__repr__() == expected
+        assert flexpoolapi.shared.StatChartItem(
+            0, 0, 0, 0, 0, timestamp).__repr__() == expected
 
 
 def test_block_misc():
@@ -81,7 +84,8 @@ def test_pageresponse_misc():
 
         assert len(data) == len(got)
         assert str(data) == str(got)
-        assert got.__repr__() == f"<flexpoolapi.shared.PageResponse object {str(data)}>"
+        assert got.__repr__(
+        ) == f"<flexpoolapi.shared.PageResponse object {str(data)}>"
 
 
 def test_pool_wrong_miner():
@@ -91,5 +95,5 @@ def test_pool_wrong_miner():
 
 def test_pool_404():
     with pytest.raises(flexpoolapi.exceptions.APIError):
-        flexpoolapi.shared.check_response(requests.get("http://localhost:5000/404"))
-
+        flexpoolapi.shared.check_response(
+            requests.get("http://localhost:5000/404"))

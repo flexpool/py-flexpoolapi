@@ -65,7 +65,7 @@ class StatChartItem:
 
     def __repr__(self):
         return "<flexpoolapi.shared.StatChartItem object " \
-                f"({datetime.datetime.fromtimestamp(self.timestamp).strftime('%Y %b %d %H:%M')})>"
+            f"({datetime.datetime.fromtimestamp(self.timestamp).strftime('%Y %b %d %H:%M')})>"
 
 
 class Block:
@@ -140,7 +140,8 @@ def get_last_items_from_paged_response(request_url, items_count: int):
         if items_count % items_per_page:
             total_pages_to_fetch += 1
         for page_index in range(1, total_pages_to_fetch):
-            fetched_page = requests.get(request_url, params=[("page", page_index)])
+            fetched_page = requests.get(
+                request_url, params=[("page", page_index)])
             check_response(fetched_page)
             fetched_items = fetched_page.json()["result"]["data"]
             items += fetched_items
@@ -157,4 +158,5 @@ def check_response(request):
     error = request.json()["error"]
 
     if error:
-        raise(exceptions.APIError(f"API Returned error: {error} (Request URL: {request.url})"))
+        raise(exceptions.APIError(
+            f"API Returned error: {error} (Request URL: {request.url})"))

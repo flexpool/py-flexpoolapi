@@ -7,7 +7,8 @@ with open("README.md", "r") as f:
 with open("requirements.txt", "r") as f:
     requirements = f.read()
 
-version = subprocess.check_output("git describe --abbrev=0 --tag", shell=True).decode()
+version = subprocess.check_output(
+    "git describe --abbrev=0 --tag", shell=True).decode()
 if version[-2:] == "\n":
     version = version[:-2]
 

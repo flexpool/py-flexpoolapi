@@ -89,13 +89,15 @@ def api_pool_top_donators():
 
 
 def api_pool_avg_luck_roundtime():
-    resp = make_response(simutils.wrap_response({"luck": simdata.AVG_LUCK, "round_time": simdata.AVG_ROUNDTIME}))
+    resp = make_response(simutils.wrap_response(
+        {"luck": simdata.AVG_LUCK, "round_time": simdata.AVG_ROUNDTIME}))
     resp.mimetype = "application/json"
     return resp
 
 
 def api_miner_exists(miner):
-    resp = make_response(simutils.wrap_response(miner == simdata.MINER_ADDRESS))
+    resp = make_response(simutils.wrap_response(
+        miner == simdata.MINER_ADDRESS))
 
     resp.mimetype = "application/json"
     return resp
@@ -147,7 +149,8 @@ def api_miner_stats(miner):
         "effective_hashrate": simdata.CURRENT_EFFECTIVE_HASHRATE,
         "reported_hashrate": simdata.CURRENT_REPORTED_HASHRATE
     }
-    resp = make_response(simutils.wrap_response({"current": current, "daily": daily}))
+    resp = make_response(simutils.wrap_response(
+        {"current": current, "daily": daily}))
 
     resp.mimetype = "application/json"
     return resp
@@ -275,7 +278,8 @@ def api_worker_stats(miner, worker):
         "reported_hashrate": simdata.WORKERS_MAP[worker]["reported_hashrate"]
     }
 
-    resp = make_response(simutils.wrap_response({"current": current, "daily": daily}))
+    resp = make_response(simutils.wrap_response(
+        {"current": current, "daily": daily}))
 
     resp.mimetype = "application/json"
     return resp
@@ -284,7 +288,8 @@ def api_worker_stats(miner, worker):
 def api_worker_chart(miner, worker):
     assert miner == simdata.MINER_ADDRESS
     assert worker in simdata.WORKERS_MAP
-    resp = make_response(simutils.wrap_response(simdata.WORKERS_CHART_MAP[worker]))
+    resp = make_response(simutils.wrap_response(
+        simdata.WORKERS_CHART_MAP[worker]))
 
     resp.mimetype = "application/json"
     return resp

@@ -54,11 +54,12 @@ class MinerDetails:
         self.pool_donation = pool_donation
         self.censored_email = censored_email
         self.censored_ip = censored_ip
-        self.first_joined_date = datetime.datetime.fromtimestamp(first_joined_timestamp)
+        self.first_joined_date = datetime.datetime.fromtimestamp(
+            first_joined_timestamp)
 
     def __repr__(self):
         return "<flexpoolapi.miner.MinerDetails object "\
-                f"({self.address})>"
+            f"({self.address})>"
 
 
 class MinerAPI:
@@ -74,13 +75,15 @@ class MinerAPI:
             if len(tmp) != 40:
                 raise(ValueError())
         except ValueError:
-            raise(exceptions.InvalidMinerAddress(f"Address {address} is invalid!"))
+            raise(exceptions.InvalidMinerAddress(
+                f"Address {address} is invalid!"))
 
         api_request = requests.get(self.endpoint + "/exists")
         shared.check_response(api_request)
 
         if not api_request.json()["result"]:
-            raise(exceptions.MinerDoesNotExist(f"Miner {address} does not exist"))
+            raise(exceptions.MinerDoesNotExist(
+                f"Miner {address} does not exist"))
 
     def balance(self):
         api_request = requests.get(self.endpoint + "/balance")
@@ -142,7 +145,8 @@ class MinerAPI:
         return items
 
     def payments_paged(self, page):
-        api_request = requests.get(self.endpoint + "/payments", params=[("page", page)])
+        api_request = requests.get(
+            self.endpoint + "/payments", params=[("page", page)])
         shared.check_response(api_request)
         api_request = api_request.json()["result"]
         classed_payments = []
@@ -159,7 +163,8 @@ class MinerAPI:
         return api_request.json()["result"]
 
     def blocks_paged(self, page):
-        api_request = requests.get(self.endpoint + "/blocks", params=[("page", page)])
+        api_request = requests.get(
+            self.endpoint + "/blocks", params=[("page", page)])
         shared.check_response(api_request)
         api_request = api_request.json()["result"]
         classed_blocks = []

@@ -69,7 +69,8 @@ for i in range(0, NUM_BLOCKS):
         block_reward = 2 * 10**18
 
     if block_type != "uncle":
-        uncle_inclusion_rewards = random.choice([0, 0, 0, 0, 0, 0, 0.625, 0.625, 0.125])
+        uncle_inclusion_rewards = random.choice(
+            [0, 0, 0, 0, 0, 0, 0.625, 0.625, 0.125])
     else:
         uncle_inclusion_rewards = 0
 
@@ -104,7 +105,8 @@ TOP_MINERS = []
 
 hashrates = []
 for i in range(0, 10):
-    hashrates.append(random.randint(15000000000, 50000000000))  # 15 GH/s to 50 GH/s
+    hashrates.append(random.randint(15000000000, 50000000000)
+                     )  # 15 GH/s to 50 GH/s
 
 hashrates = sorted(hashrates)
 hashrates.reverse()
@@ -115,7 +117,8 @@ for i in range(0, 10):
         "address": utils.genrandaddr(),
         "hashrate": hashrate,
         "pool_donation": random.choice([0.01, 0.02, 0.03, 0.04, 0.05]),
-        "total_workers": hashrate / random.randint(20000000, 90000000),  # 20 MH/s to 90 MH/s
+        # 20 MH/s to 90 MH/s
+        "total_workers": hashrate / random.randint(20000000, 90000000),
         "first_joined": random.randint(int(time.time()) - 86400 * 365, int(time.time()))
     })
 
@@ -124,7 +127,8 @@ TOP_DONATORS = []
 
 total_donated_top = []
 for i in range(0, 10):
-    total_donated_top.append(random.randint(50 * 10**18, 100 * 10**18))  # 50 ETH to 100 ETH
+    total_donated_top.append(random.randint(
+        50 * 10**18, 100 * 10**18))  # 50 ETH to 100 ETH
 
 total_donated_top = sorted(total_donated_top)
 total_donated_top.reverse()
@@ -139,20 +143,24 @@ for i in range(0, 10):
     })
 
 
-AVG_LUCK = random.randint(500000000000000, 10000000000000000) / 1000000000000000
+AVG_LUCK = random.randint(
+    500000000000000, 10000000000000000) / 1000000000000000
 AVG_ROUNDTIME = random.randint(50, 1200) / 10
 
 
 MINER_ADDRESS = utils.genrandaddr()
 MINER_BALANCE = random.randint(0, 10**18)  # 0 ETH to 1 ETH
 
-CURRENT_REPORTED_HASHRATE = random.randint(50000000, 5000000000)  # 50 MH/s to 5 GH/s
+CURRENT_REPORTED_HASHRATE = random.randint(
+    50000000, 5000000000)  # 50 MH/s to 5 GH/s
 if random.choice([True, False]):
     # Effective is higher than reported (True was selected)
     print(int(CURRENT_REPORTED_HASHRATE * 0.1))
-    CURRENT_EFFECTIVE_HASHRATE = CURRENT_REPORTED_HASHRATE + random.randint(0, int(CURRENT_REPORTED_HASHRATE * 0.1))
+    CURRENT_EFFECTIVE_HASHRATE = CURRENT_REPORTED_HASHRATE + \
+        random.randint(0, int(CURRENT_REPORTED_HASHRATE * 0.1))
 else:
-    CURRENT_EFFECTIVE_HASHRATE = CURRENT_REPORTED_HASHRATE + random.randint(0, int(CURRENT_REPORTED_HASHRATE * 0.1))
+    CURRENT_EFFECTIVE_HASHRATE = CURRENT_REPORTED_HASHRATE + \
+        random.randint(0, int(CURRENT_REPORTED_HASHRATE * 0.1))
 
 
 DAILY_REPORTED_HASHRATE = random.randint(
@@ -211,7 +219,8 @@ MINER_CENSORED_EMAIL = "mai*@exa****.com"  # mail@example.com
 MINER_CENSORED_IP = "*.*.*.1"  # 1.1.1.1
 MINER_POOL_DONATION = 0.05  # MVP
 MINER_MIN_PAYOUT_THRESHOLD = 0.05  # Minimal one
-MINER_FIRST_JOINED = random.randint(last_timestamp - 86400 * 365, last_timestamp)
+MINER_FIRST_JOINED = random.randint(
+    last_timestamp - 86400 * 365, last_timestamp)
 
 WORKER_COUNT = random.randint(1, 10)
 WORKERS = []
