@@ -58,6 +58,12 @@ def api_pool_block_count():
     return resp
 
 
+def api_pool_current_luck():
+    resp = make_response(simutils.wrap_response(simdata.CURRENT_LUCK))
+    resp.mimetype = "application/json"
+    return resp
+
+
 def api_pool_blocks():
     page = int(request.args.get("page"))
     resp = make_response(simutils.wrap_response({
@@ -303,6 +309,7 @@ def prepare_api_app():
     app.route("/api/v1/pool/topMiners")(api_pool_top_miners)
     app.route("/api/v1/pool/topDonators")(api_pool_top_donators)
     app.route("/api/v1/pool/avgLuckRoundtime")(api_pool_avg_luck_roundtime)
+    app.route("/api/v1/pool/currentLuck")(api_pool_current_luck)
 
     # Miner API
     app.route("/api/v1/miner/<miner>/exists")(api_miner_exists)

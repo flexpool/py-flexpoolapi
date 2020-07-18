@@ -105,7 +105,14 @@ class TestPool:
             assert top_miner["first_joined"] == got[i].first_joined.timestamp()
 
     def test_avg_luck_roundtime(self):
-        expected = requests.get("https://flexpool.io/api/v1/pool/avgLuckRoundtime").json()["result"]
+        expected = requests.get(
+            "https://flexpool.io/api/v1/pool/avgLuckRoundtime").json()["result"]
         avg_luck_got, avg_roundtime_got = flexpoolapi.pool.avg_luck_roundtime()
         assert expected["luck"] == avg_luck_got
         assert round(expected["round_time"], 2) == avg_roundtime_got
+
+    def test_current_luck(self):
+        expected = requests.get(
+            "https://flexpool.io/api/v1/pool/currentLuck").json()["result"]
+        got = flexpoolapi.pool.current_luck()
+        assert expected == got

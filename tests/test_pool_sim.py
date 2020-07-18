@@ -93,3 +93,7 @@ class TestPoolSimulated:
         avg_luck_got, avg_roundtime_got = flexpoolapi.pool.avg_luck_roundtime()
         assert avg_luck_got == simdata.AVG_LUCK
         assert round(avg_roundtime_got, 2) == simdata.AVG_ROUNDTIME
+
+    def test_current_luck(self):
+        current_luck_got = flexpoolapi.pool.current_luck()
+        assert current_luck_got == simdata.CURRENT_LUCK

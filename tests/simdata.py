@@ -255,3 +255,6 @@ for worker_name, worker_data in WORKERS_MAP.items():
             "timestamp": start_ts - i * 600
         })
     WORKERS_CHART_MAP[worker_name] = tmp
+
+
+CURRENT_LUCK = random.randint(1, 100000000) / 10000000
