@@ -110,7 +110,6 @@ class TestPool:
             assert top_miner["address"] == got[i].address
             assert top_miner["total_donated"] == got[i].total_donated
             assert top_miner["pool_donation"] == got[i].pool_donation
-            assert top_miner["balance"] == got[i].balance
             assert top_miner["hashrate"] == got[i].hashrate
             assert top_miner["first_joined"] == got[i].first_joined.timestamp()
 

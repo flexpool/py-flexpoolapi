@@ -117,6 +117,7 @@ for i in range(0, 10):
         "address": utils.genrandaddr(),
         "hashrate": hashrate,
         "pool_donation": random.choice([0.01, 0.02, 0.03, 0.04, 0.05]),
+        "balance": random.randint(0, 10**19),
         # 20 MH/s to 90 MH/s
         "total_workers": hashrate / random.randint(20000000, 90000000),
         "first_joined": random.randint(int(time.time()) - 86400 * 365, int(time.time()))
