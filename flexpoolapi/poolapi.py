@@ -49,10 +49,11 @@ class HashrateChartItem:
 
 class TopMiner:
     def __init__(self,
-                 address: str, hashrate: int, pool_donation: float, total_workers: int, first_joined_timestamp: int):
+                 address: str, hashrate: int, pool_donation: float, balance: int, total_workers: int, first_joined_timestamp: int):
         self.address = address
         self.hashrate = hashrate
         self.pool_donation = pool_donation
+        self.balance = balance
         self.total_workers = total_workers
         self.first_joined = datetime.datetime.fromtimestamp(
             first_joined_timestamp)
@@ -148,6 +149,7 @@ class PoolAPI:
                     top_miner["address"],
                     top_miner["hashrate"],
                     top_miner["pool_donation"],
+                    top_miner["balance"],
                     top_miner["total_workers"],
                     top_miner["first_joined"]
                 )
