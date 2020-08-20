@@ -235,6 +235,28 @@ def api_miner_details(miner):
     return resp
 
 
+def api_miner_estimated_daily_profit(miner):
+    assert miner == simdata.MINER_ADDRESS
+    resp = make_response(simutils.wrap_response(
+        simdata.MINER_ESTIMATED_DAILY_PROFIT))
+    resp.mimetype = "application/json"
+    return resp
+
+
+def api_miner_total_paid(miner):
+    assert miner == simdata.MINER_ADDRESS
+    resp = make_response(simutils.wrap_response(simdata.MINER_TOTAL_PAID))
+    resp.mimetype = "application/json"
+    return resp
+
+
+def api_miner_total_donated(miner):
+    assert miner == simdata.MINER_ADDRESS
+    resp = make_response(simutils.wrap_response(simdata.MINER_TOTAL_DONATED))
+    resp.mimetype = "application/json"
+    return resp
+
+
 def api_worker_current(miner, worker):
     assert miner == simdata.MINER_ADDRESS
     assert worker in simdata.WORKERS_MAP
@@ -330,6 +352,10 @@ def prepare_api_app():
     app.route("/api/v1/miner/<miner>/blockCount")(api_miner_block_count)
     app.route("/api/v1/miner/<miner>/blocks")(api_miner_blocks)
     app.route("/api/v1/miner/<miner>/details")(api_miner_details)
+    app.route(
+        "/api/v1/miner/<miner>/estimatedDailyProfit")(api_miner_estimated_daily_profit)
+    app.route("/api/v1/miner/<miner>/totalPaid")(api_miner_total_paid)
+    app.route("/api/v1/miner/<miner>/totalDonated")(api_miner_total_donated)
 
     # Worker API
     app.route("/api/v1/worker/<miner>/<worker>/current")(api_worker_current)

@@ -188,3 +188,18 @@ class MinerAPI:
         api_request = api_request.json()["result"]
         return MinerDetails(self.address, api_request["min_payout_threshold"], api_request["pool_donation"],
                             api_request["censored_email"], api_request["censored_ip"], api_request["first_joined"])
+
+    def estimated_daily_profit(self):
+        api_request = requests.get(self.endpoint + "/estimatedDailyProfit")
+        shared.check_response(api_request)
+        return api_request.json()["result"]
+
+    def total_paid(self):
+        api_request = requests.get(self.endpoint + "/totalPaid")
+        shared.check_response(api_request)
+        return api_request.json()["result"]
+
+    def total_donated(self):
+        api_request = requests.get(self.endpoint + "/totalDonated")
+        shared.check_response(api_request)
+        return api_request.json()["result"]

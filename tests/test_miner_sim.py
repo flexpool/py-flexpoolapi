@@ -105,3 +105,15 @@ class TestMinerSimulated:
         assert got.pool_donation == simdata.MINER_POOL_DONATION
         assert got.min_payout_threshold == simdata.MINER_MIN_PAYOUT_THRESHOLD
         assert got.first_joined_date.timestamp() == simdata.MINER_FIRST_JOINED
+
+    def test_estimated_daily_profits(self):
+        got = self.miner_api.estimated_daily_profit()
+        assert got == simdata.MINER_ESTIMATED_DAILY_PROFIT
+
+    def test_total_paid(self):
+        got = self.miner_api.total_paid()
+        assert got == simdata.MINER_TOTAL_PAID
+
+    def test_total_donated(self):
+        got = self.miner_api.total_donated()
+        assert got == simdata.MINER_TOTAL_DONATED
