@@ -165,6 +165,29 @@ Statistics
 
    :ref:`miner_details`
 
+.. py:method:: miner.total_paid()
+
+   - Delegates to ``/miner/<ADDRESS>/totalPaid`` API Method
+
+   Returns the value of weis paid to the miner.
+
+   .. code-block:: python
+
+         >>> flexpoolapi.miner("0xa598f8fB0a44eF74357815e318dC1C48719Fc3AD").total_paid()
+         719802600880251629
+
+
+.. py:method:: miner.total_donated()
+
+   - Delegates to ``/miner/<ADDRESS>/totalDonated`` API Method
+
+   Returns the value of weis donated by miner. (<3)
+
+   .. code-block:: python
+
+         >>> flexpoolapi.miner("0xa598f8fB0a44eF74357815e318dC1C48719Fc3AD").total_paid()
+         35990130044012584
+
 Payments
 ------------------------------------------
 
