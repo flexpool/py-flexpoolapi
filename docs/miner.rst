@@ -188,6 +188,28 @@ Statistics
          >>> flexpoolapi.miner("0xa598f8fB0a44eF74357815e318dC1C48719Fc3AD").total_paid()
          35990130044012584
 
+.. py:method:: miner.estimated_daily_profit()
+
+   - Delegates to ``/miner/<ADDRESS>/estimatedDailyProfit`` API Method
+
+   Returns miner's approximate daily profit (in weis).
+
+   .. code-block:: python
+
+         >>> flexpoolapi.miner("0xAB1a87C524b5B302954a3ceE2685445C38b6B916").estimated_daily_profit()
+         128129842556298557
+
+.. py:method:: miner.round_share()
+
+   - Delegates to ``/miner/<ADDRESS>/roundShare`` API Method
+
+   Returns miner's round share (%).
+
+   .. code-block:: python
+
+         >>> flexpoolapi.miner("0x25bC7A927ff4a2C4243752e0C577c6aFB740c291").round_share()
+         0.024  # 0.024%
+
 Payments
 ------------------------------------------
 
