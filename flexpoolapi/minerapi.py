@@ -194,6 +194,11 @@ class MinerAPI:
         shared.check_response(api_request)
         return api_request.json()["result"]
 
+    def round_share(self):
+        api_request = requests.get(self.endpoint + "/roundShare")
+        shared.check_response(api_request)
+        return api_request.json()["result"]
+
     def total_paid(self):
         api_request = requests.get(self.endpoint + "/totalPaid")
         shared.check_response(api_request)
