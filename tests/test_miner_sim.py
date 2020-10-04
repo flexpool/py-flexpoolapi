@@ -110,6 +110,10 @@ class TestMinerSimulated:
         got = self.miner_api.estimated_daily_profit()
         assert got == simdata.MINER_ESTIMATED_DAILY_PROFIT
 
+    def test_round_share(self):
+        got = self.miner_api.round_share()
+        assert got == simdata.MINER_ROUND_SHARE
+
     def test_total_paid(self):
         got = self.miner_api.total_paid()
         assert got == simdata.MINER_TOTAL_PAID
