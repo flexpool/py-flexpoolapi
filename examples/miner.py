@@ -78,3 +78,6 @@ print("Chart:", miner.chart())
 print("Total payments:", miner.payment_count())
 print("Payments page 0:", miner.payments_paged(0))
 print("Last 2 payments:", miner.last_payments(2))
+
+print("Estimated daily profit:", miner.estimated_daily_profit())
+print("Round share:", miner.round_share())
