@@ -190,7 +190,12 @@ class MinerAPI:
                             api_request["censored_email"], api_request["censored_ip"], api_request["first_joined"])
 
     def estimated_daily_profit(self):
-        api_request = requests.get(self.endpoint + "/estimatedDailyProfit")
+        print("miner.estimated_daily_profit() method is deprecated. Please, consider using miner.estimated_daily_revenue().")
+        # DEPRECATED. Please use estimated_daily_revenue() method.
+        return self.estimated_daily_revenue()
+
+    def estimated_daily_revenue(self):
+        api_request = requests.get(self.endpoint + "/estimatedDailyRevenue/")
         shared.check_response(api_request)
         return api_request.json()["result"]
 
