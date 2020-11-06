@@ -235,10 +235,10 @@ def api_miner_details(miner):
     return resp
 
 
-def api_miner_estimated_daily_profit(miner):
+def api_miner_estimated_daily_revenue(miner):
     assert miner == simdata.MINER_ADDRESS
     resp = make_response(simutils.wrap_response(
-        simdata.MINER_ESTIMATED_DAILY_PROFIT))
+        simdata.MINER_ESTIMATED_DAILY_REVENUE))
     resp.mimetype = "application/json"
     return resp
 
@@ -361,7 +361,7 @@ def prepare_api_app():
     app.route("/api/v1/miner/<miner>/blocks/")(api_miner_blocks)
     app.route("/api/v1/miner/<miner>/details/")(api_miner_details)
     app.route(
-        "/api/v1/miner/<miner>/estimatedDailyProfit")(api_miner_estimated_daily_profit)
+        "/api/v1/miner/<miner>/estimatedDailyRevenue/")(api_miner_estimated_daily_revenue)
     app.route("/api/v1/miner/<miner>/roundShare/")(api_miner_round_share)
     app.route("/api/v1/miner/<miner>/totalPaid/")(api_miner_total_paid)
     app.route("/api/v1/miner/<miner>/totalDonated/")(api_miner_total_donated)

@@ -270,7 +270,7 @@ for worker_name, worker_data in WORKERS_MAP.items():
 CURRENT_LUCK = random.randint(1, 100000000) / 10000000
 
 
-MINER_ESTIMATED_DAILY_PROFIT = random.randint(1, 10**18)
+MINER_ESTIMATED_DAILY_REVENUE = random.randint(1, 10**18)
 MINER_TOTAL_PAID = random.randint(1, 10**18)
 MINER_TOTAL_DONATED = random.randint(1, 10**18)
 

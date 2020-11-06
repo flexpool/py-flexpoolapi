@@ -106,9 +106,9 @@ class TestMinerSimulated:
         assert got.min_payout_threshold == simdata.MINER_MIN_PAYOUT_THRESHOLD
         assert got.first_joined_date.timestamp() == simdata.MINER_FIRST_JOINED
 
-    def test_estimated_daily_profits(self):
-        got = self.miner_api.estimated_daily_profit()
-        assert got == simdata.MINER_ESTIMATED_DAILY_PROFIT
+    def test_estimated_daily_revenue(self):
+        got = self.miner_api.estimated_daily_revenue()
+        assert got == simdata.MINER_ESTIMATED_DAILY_REVENUE
 
     def test_round_share(self):
         got = self.miner_api.round_share()
