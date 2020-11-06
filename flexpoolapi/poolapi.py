@@ -81,12 +81,12 @@ class PoolAPI:
         self.endpoint = __POOL_API_ENDPOINT__
 
     def hashrate(self):
-        api_request = requests.get(self.endpoint + "/hashrate")
+        api_request = requests.get(self.endpoint + "/hashrate/")
         shared.check_response(api_request)
         return api_request.json()["result"]
 
     def hashrate_chart(self):
-        api_request = requests.get(self.endpoint + "/hashrateChart")
+        api_request = requests.get(self.endpoint + "/hashrateChart/")
         shared.check_response(api_request)
         hashrate_chart_classed = []
         for item in api_request.json()["result"]:
@@ -98,12 +98,12 @@ class PoolAPI:
         return hashrate_chart_classed
 
     def miners_online(self):
-        api_request = requests.get(self.endpoint + "/minersOnline")
+        api_request = requests.get(self.endpoint + "/minersOnline/")
         shared.check_response(api_request)
         return api_request.json()["result"]
 
     def workers_online(self):
-        api_request = requests.get(self.endpoint + "/workersOnline")
+        api_request = requests.get(self.endpoint + "/workersOnline/")
         shared.check_response(api_request)
         return api_request.json()["result"]
 
@@ -135,12 +135,12 @@ class PoolAPI:
         return classed_blocks
 
     def block_count(self):
-        api_request = requests.get(self.endpoint + "/blockCount")
+        api_request = requests.get(self.endpoint + "/blockCount/")
         shared.check_response(api_request)
         return api_request.json()["result"]
 
     def top_miners(self):
-        api_request = requests.get(self.endpoint + "/topMiners")
+        api_request = requests.get(self.endpoint + "/topMiners/")
         shared.check_response(api_request)
         top_miners_classed = []
         for top_miner in api_request.json()["result"]:
@@ -157,7 +157,7 @@ class PoolAPI:
         return top_miners_classed
 
     def top_donators(self):
-        api_request = requests.get(self.endpoint + "/topDonators")
+        api_request = requests.get(self.endpoint + "/topDonators/")
         shared.check_response(api_request)
         top_donators_classed = []
         for top_donator in api_request.json()["result"]:
@@ -174,12 +174,12 @@ class PoolAPI:
         return top_donators_classed
 
     def avg_luck_roundtime(self) -> (float, float):
-        api_request = requests.get(self.endpoint + "/avgLuckRoundtime")
+        api_request = requests.get(self.endpoint + "/avgLuckRoundtime/")
         shared.check_response(api_request)
         api_request = api_request.json()["result"]
         return api_request["luck"], round(api_request["round_time"], 2)
 
     def current_luck(self) -> (float):
-        api_request = requests.get(self.endpoint + "/currentLuck")
+        api_request = requests.get(self.endpoint + "/currentLuck/")
         shared.check_response(api_request)
         return api_request.json()["result"]

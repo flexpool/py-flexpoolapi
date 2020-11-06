@@ -31,7 +31,7 @@ __MINER_API_ENDPOINT__ = None
 
 def update_endpoint(endpoint):
     global __MINER_API_ENDPOINT__
-    __MINER_API_ENDPOINT__ = endpoint + "/miner"
+    __MINER_API_ENDPOINT__ = endpoint + "/miner/"
 
 
 class Transaction:
@@ -78,7 +78,7 @@ class MinerAPI:
             raise(exceptions.InvalidMinerAddress(
                 f"Address {address} is invalid!"))
 
-        api_request = requests.get(self.endpoint + "/exists")
+        api_request = requests.get(self.endpoint + "/exists/")
         shared.check_response(api_request)
 
         if not api_request.json()["result"]:
@@ -86,18 +86,18 @@ class MinerAPI:
                 f"Miner {address} does not exist"))
 
     def balance(self):
-        api_request = requests.get(self.endpoint + "/balance")
+        api_request = requests.get(self.endpoint + "/balance/")
         shared.check_response(api_request)
         return api_request.json()["result"]
 
     def current_hashrate(self):
-        api_request = requests.get(self.endpoint + "/current")
+        api_request = requests.get(self.endpoint + "/current/")
         shared.check_response(api_request)
         api_request = api_request.json()["result"]
         return api_request["effective_hashrate"], api_request["reported_hashrate"]
 
     def stats(self):
-        api_request = requests.get(self.endpoint + "/stats")
+        api_request = requests.get(self.endpoint + "/stats/")
         shared.check_response(api_request)
         api_request = api_request.json()["result"]
         class_ = shared.Stats(
@@ -108,7 +108,7 @@ class MinerAPI:
         return class_
 
     def daily_average_stats(self):
-        api_request = requests.get(self.endpoint + "/daily")
+        api_request = requests.get(self.endpoint + "/daily/")
         shared.check_response(api_request)
         api_request = api_request.json()["result"]
         class_ = shared.DailyAverageStats(
@@ -118,12 +118,12 @@ class MinerAPI:
         return class_
 
     def worker_count(self):
-        api_request = requests.get(self.endpoint + "/workerCount")
+        api_request = requests.get(self.endpoint + "/workerCount/")
         shared.check_response(api_request)
         return api_request.json()["result"]
 
     def workers(self):
-        api_request = requests.get(self.endpoint + "/workers")
+        api_request = requests.get(self.endpoint + "/workers/")
         shared.check_response(api_request)
         classed_workers = []
         for worker_ in api_request.json()["result"]:
@@ -146,7 +146,7 @@ class MinerAPI:
 
     def payments_paged(self, page):
         api_request = requests.get(
-            self.endpoint + "/payments", params=[("page", page)])
+            self.endpoint + "/payments/", params=[("page", page)])
         shared.check_response(api_request)
         api_request = api_request.json()["result"]
         classed_payments = []
@@ -158,7 +158,7 @@ class MinerAPI:
             classed_payments, api_request["total_items"], api_request["total_pages"], api_request["items_per_page"])
 
     def payment_count(self):
-        api_request = requests.get(self.endpoint + "/paymentCount")
+        api_request = requests.get(self.endpoint + "/paymentCount/")
         shared.check_response(api_request)
         return api_request.json()["result"]
 
@@ -178,12 +178,12 @@ class MinerAPI:
             classed_blocks, api_request["total_items"], api_request["total_pages"], api_request["items_per_page"])
 
     def block_count(self):
-        api_request = requests.get(self.endpoint + "/blockCount")
+        api_request = requests.get(self.endpoint + "/blockCount/")
         shared.check_response(api_request)
         return api_request.json()["result"]
 
     def details(self):
-        api_request = requests.get(self.endpoint + "/details")
+        api_request = requests.get(self.endpoint + "/details/")
         shared.check_response(api_request)
         api_request = api_request.json()["result"]
         return MinerDetails(self.address, api_request["min_payout_threshold"], api_request["pool_donation"],
@@ -200,16 +200,16 @@ class MinerAPI:
         return api_request.json()["result"]
 
     def round_share(self):
-        api_request = requests.get(self.endpoint + "/roundShare")
+        api_request = requests.get(self.endpoint + "/roundShare/")
         shared.check_response(api_request)
         return api_request.json()["result"]
 
     def total_paid(self):
-        api_request = requests.get(self.endpoint + "/totalPaid")
+        api_request = requests.get(self.endpoint + "/totalPaid/")
         shared.check_response(api_request)
         return api_request.json()["result"]
 
     def total_donated(self):
-        api_request = requests.get(self.endpoint + "/totalDonated")
+        api_request = requests.get(self.endpoint + "/totalDonated/")
         shared.check_response(api_request)
         return api_request.json()["result"]

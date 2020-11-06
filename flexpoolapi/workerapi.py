@@ -45,13 +45,13 @@ class Worker:
             f"/{self.address}/{self.worker_name}"
 
     def current_hashrate(self):
-        api_request = requests.get(self.endpoint + "/current")
+        api_request = requests.get(self.endpoint + "/current/")
         shared.check_response(api_request)
         api_request = api_request.json()["result"]
         return api_request["effective_hashrate"], api_request["reported_hashrate"]
 
     def stats(self):
-        api_request = requests.get(self.endpoint + "/stats")
+        api_request = requests.get(self.endpoint + "/stats/")
         shared.check_response(api_request)
         api_request = api_request.json()["result"]
         class_ = shared.Stats(
@@ -62,7 +62,7 @@ class Worker:
         return class_
 
     def daily_average_stats(self):
-        api_request = requests.get(self.endpoint + "/daily")
+        api_request = requests.get(self.endpoint + "/daily/")
         shared.check_response(api_request)
         api_request = api_request.json()["result"]
         class_ = shared.DailyAverageStats(
@@ -72,7 +72,7 @@ class Worker:
         return class_
 
     def chart(self):
-        api_request = requests.get(self.endpoint + "/chart")
+        api_request = requests.get(self.endpoint + "/chart/")
         shared.check_response(api_request)
         items = []
         for item in api_request.json()["result"]:
