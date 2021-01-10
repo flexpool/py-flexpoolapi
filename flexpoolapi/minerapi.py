@@ -64,7 +64,7 @@ class MinerDetails:
 
 class MinerAPI:
     def __init__(self, address: str):
-        self.endpoint = __MINER_API_ENDPOINT__ + f"/{address}"
+        self.endpoint = __MINER_API_ENDPOINT__ + f"{address}"
         self.address = address
 
         try:
@@ -78,7 +78,7 @@ class MinerAPI:
             raise(exceptions.InvalidMinerAddress(
                 f"Address {address} is invalid!"))
 
-        api_request = requests.get(self.endpoint + "/exists/")
+        api_request = requests.get(self.endpoint + "/exist/")
         shared.check_response(api_request)
 
         if not api_request.json()["result"]:
