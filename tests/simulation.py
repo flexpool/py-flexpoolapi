@@ -347,7 +347,7 @@ def prepare_api_app():
     app.route("/api/v1/pool/currentLuck/")(api_pool_current_luck)
 
     # Miner API
-    app.route("/api/v1/miner/<miner>/exists/")(api_miner_exists)
+    app.route("/api/v1/miner/<miner>/exist/")(api_miner_exists)
     app.route("/api/v1/miner/<miner>/balance/")(api_miner_balance)
     app.route("/api/v1/miner/<miner>/current/")(api_miner_current_hashrate)
     app.route("/api/v1/miner/<miner>/daily/")(api_miner_daily)
