@@ -66,9 +66,9 @@ print("Daily Invalid shares", stats.invalid_shares)
 
 print("\n---BLOCKS--\n")
 
-print("Blocks Count", miner.block_count())
-print("Blocks (page 0)", miner.blocks_paged(0))
-print("Last 1 block", miner.last_blocks(count=1))
+print("Blocks Count", flexpoolapi.pool.block_count())
+print("Blocks (page 0)", flexpoolapi.pool.blocks_paged(0))
+print("Last 1 block", flexpoolapi.pool.last_blocks(count=1))
 
 print("\n--OTHER--\n")
 
@@ -77,7 +77,6 @@ print("Chart:", miner.chart())
 
 print("Total payments:", miner.payment_count())
 print("Payments page 0:", miner.payments_paged(0))
-print("Last 2 payments:", miner.last_payments(2))
 
 print("Estimated daily profit:", miner.estimated_daily_profit())
 print("Round share:", miner.round_share())
