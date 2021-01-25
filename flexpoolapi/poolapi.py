@@ -64,11 +64,10 @@ class TopMiner:
 
 class TopDonator:
     def __init__(self,
-                 address: str, total_donated: int, pool_donation: float, hashrate: int, first_joined_timestamp: int):
+                 address: str, total_donated: int, pool_donation: float, first_joined_timestamp: int):
         self.address = address
         self.total_donated = total_donated
         self.pool_donation = pool_donation
-        self.hashrate = hashrate
         self.first_joined = datetime.datetime.fromtimestamp(
             first_joined_timestamp)
 
@@ -166,7 +165,6 @@ class PoolAPI:
                     top_donator["address"],
                     top_donator["total_donated"],
                     top_donator["pool_donation"],
-                    top_donator["hashrate"],
                     top_donator["first_joined"]
                 )
             )

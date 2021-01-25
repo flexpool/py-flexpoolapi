@@ -139,7 +139,6 @@ for i in range(0, 10):
         "address": utils.genrandaddr(),
         "total_donated": total_donated_top[i],
         "pool_donation": random.choice([0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1]),
-        "hashrate": random.randint(1000000000, 15000000000),
         "first_joined": random.randint(int(time.time()) - 86400 * 365, int(time.time()))
     })
 

@@ -153,15 +153,13 @@ Top Statistics
          >>> top_donators[0]
          <flexpoolapi.pool.TopDonator object 0xD7557BcC922E16D5248231Ee85919F5b01c97d12: 534.1283 ETH>
 
-         >>> top_miners[0].address
+         >>> top_donators[0].address
          0xD7557BcC922E16D5248231Ee85919F5b01c97d12
-         >>> top_miners[0].hashrate
-         4832143791236
-         >>> top_miners[0].pool_donation
+         >>> top_donators[0].pool_donation
          0.05
-         >>> top_miners[0].total_donated
+         >>> top_donators[0].total_donated
          534.128394767847103826
-         >>> top_miners[0].first_joined
+         >>> top_donators[0].first_joined
          datetime.datetime(2020, 5, 13, 20, 8, 7)
 
       **References:**

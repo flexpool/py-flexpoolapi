@@ -89,7 +89,6 @@ class TestPoolSimulated:
             assert expected_miner["address"] == got[i].address
             assert expected_miner["total_donated"] == got[i].total_donated
             assert expected_miner["pool_donation"] == got[i].pool_donation
-            assert expected_miner["hashrate"] == got[i].hashrate
             assert expected_miner["first_joined"] == got[i].first_joined.timestamp(
             )
 
