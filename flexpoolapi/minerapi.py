@@ -150,9 +150,10 @@ class MinerAPI:
         shared.check_response(api_request)
         api_request = api_request.json()["result"]
         classed_payments = []
-        for raw_tx in api_request["data"]:
-            classed_payments.append(Transaction(
-                raw_tx["amount"], raw_tx["timestamp"], raw_tx["duration"], raw_tx["txid"]))
+        if api_request["data"]:
+            for raw_tx in api_request["data"]:
+                classed_payments.append(Transaction(
+                    raw_tx["amount"], raw_tx["timestamp"], raw_tx["duration"], raw_tx["txid"]))
 
         return shared.PageResponse(
             classed_payments, api_request["total_items"], api_request["total_pages"], api_request["items_per_page"])
